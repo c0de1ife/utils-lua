@@ -4,7 +4,6 @@
 --- DateTime: 2018/4/13 19:02
 ---
 
-
 -- dump a table(if not a table, print it directly)
 -- tb is the table to dump, sp is separator, level is recursion times.
 -- tb is required. sp and level are optional.
