@@ -88,3 +88,5 @@ function tbfunc.str2tb2(str, sp1, sp2, mpt)
     end
     return tb
 end
+
+return tbfunc
