@@ -8,17 +8,17 @@ local url = {}
 
 --url encoding (percent-encoding)
 function url.encode(url)
-    return (url:gsub("[^a-zA-Z0-9%-_%.~!%*'%(%);:@&=%+%$,/%?#%[%]]", function (c)
+    return url:gsub("[^a-zA-Z0-9%-_%.~!%*'%(%);:@&=%+%$,/%?#%[%]]", function (c)
         return string.format('%%%X', string.byte(c))
-    end)):gsub('%%20', '+')
+    end):gsub('%%20', '+')
 end
 
 --url decoding (percent-encoding)
 function url.decode(url)
     local str = str:gsub('+', ' ')
-    return (url:gsub("%%(%x%x)", function (c)
+    return url:gsub("%%(%x%x)", function (c)
         return string.char(tonumber(c, 16))
-    end))
+    end)
 end
 
 return url
