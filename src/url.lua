@@ -10,12 +10,13 @@ local url = {}
 function url.encode(url)
     return (url:gsub("[^a-zA-Z0-9%-_%.~!%*'%(%);:@&=%+%$,/%?#%[%]]", function (c)
         return string.format('%%%X', string.byte(c))
-    end))
+    end)):gsub('%%20', '+')
 end
 
 --url decoding (percent-encoding)
 function url.decode(url)
-    return (url:gsub("%%(..)", function (c)
+    local str = str:gsub('+', ' ')
+    return (url:gsub("%%(%x%x)", function (c)
         return string.char(tonumber(c, 16))
     end))
 end
