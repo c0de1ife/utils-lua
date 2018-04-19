@@ -1,0 +1,9 @@
+-- get current directory
+-- lua5.3
+local function curdir()
+    -- in windows: local file = io.popen("cd")
+    local file = io.popen("pwd")
+    local pwd = file:read("*a")
+    file:close()
+    return pwd:match("%g*")
+end
